@@ -16,9 +16,19 @@ body {
   }
   
   .event {
-    padding: 10px; /* Увеличение внутреннего отступа */
-    border: 1px solid #ccc;
-    font-size: 1rem; /* Увеличение текста */
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    font-size: 1rem;
+    margin: 10px;
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+  }
+
+  .register {
+      display: flex;
+      justify-content: space-between; 
+      margin-top: 20px;
   }
 
   .participant {
@@ -27,9 +37,7 @@ body {
     font-size: 1rem; /* Увеличение текста */
   }
 
-  .register {
-    padding:20px; /* Увеличение внутреннего отступа */
-  }
+
 
   .form-info {
     padding: 10px; 
@@ -78,4 +86,42 @@ body {
 
 .form-button input:hover {
   background-color: rgba(0, 0, 0, 0.6);
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 20px 0;
+}
+
+.pagination a {
+  padding: 10px;
+  margin: 0 5px;
+  text-decoration: none;
+  color: blue; /* Колір тексту для цифр */
+}
+
+.pagination a.arrow {
+  font-weight: bold; /* Для виділення стрілок */
+  color: blue; /* Колір для стрілок */
+}
+
+.pagination a.active {
+  font-weight: bold; /* Виділити активну сторінку */
+  color: darkblue; /* Колір для активної сторінки */
+}
+
+.pagination a:hover {
+  text-decoration: underline; /* Підкреслення при наведенні */
+}
+
+.register a {
+  color: blue; /* Задає колір тексту посилань */
+  text-decoration: none; /* Прибирає підкреслення */
+}
+
+/* Додатковий стиль при наведенні курсора */
+.register a:hover {
+  text-decoration: underline; /* Показує підкреслення при наведенні курсора (за бажанням) */
 }
