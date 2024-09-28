@@ -31,13 +31,6 @@ app.use(express.static('styles'));
 
 app.use(express.urlencoded({ extended: false }));
 
-
-// Маршрут для сторінки з подіями
-/*app.get('/events/:id', (req, res) => {
-    const title = 'Event';
-    res.render(createPath('event'), { title, event });
-});*/
-
 app.get('/', (req, res) => {
     const title = 'Events';
    // const events = await Event.find().limit(10); 
@@ -62,13 +55,15 @@ app.get('/register/:id', (req, res) => {
 });
 
 app.post('/add-participant', (req, res) => {
-    console.log( req.body);
+
     const { fullName, email, dateOfBirth, eventId, source } = req.body;
     
     const participant = new Participant({ fullName, email, dateOfBirth, eventId, source });
     participant
       .save()
-      .then((post) => res.status(200).json(post))
+      .then((post) => {
+        res.redirect('/');
+    })
       .catch((error) => handleError(res, error));
 });
 
