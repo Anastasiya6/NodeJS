@@ -17,7 +17,17 @@
 
       <% }); %>
     <% } %>
-    
+  </div>
+  <div class="pagination">
+    <% if (page > 1) { %>
+        <a href="/?page=<%= page - 1 %>" class="arrow">←</a>
+    <% } %>
+    <% for (let i = 1; i <= totalPages; i++) { %>
+        <a href="/?page=<%= i %>" class="<%= page === i ? 'active' : '' %>"><%= i %></a>
+    <% } %>
+    <% if (page < totalPages) { %>
+        <a href="/?page=<%= page + 1 %>" class="arrow">→</a>
+    <% } %>
   </div>
 </body>
 </html>

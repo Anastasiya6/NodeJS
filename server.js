@@ -2,8 +2,6 @@ const express = require('express');
 
 const path = require('path'); 
 
-const { readSync } = require('fs');
-
 const Event = require('./models/event');
 
 const Participant = require('./models/participant');
@@ -33,24 +31,30 @@ app.use(express.urlencoded({ extended: false }));
 
 app.get('/', (req, res) => {
     const title = 'Events';
-   // const events = await Event.find().limit(10); 
+    const page = parseInt(req.query.page) || 1; 
+    const limit = 12; 
+    const skip = (page - 1) * limit; 
+
     Event
-    .find()
-    .limit(12)
-    .then((events) => res.render(createPath('events'), { events, title }))
-    .catch((error) => {
-      console.log(error);
-      res.render(createPath('error'), { title: 'Error' });
-    });
+        .find()
+        .skip(skip)
+        .limit(limit) 
+        .then(events => {
+
+            return Event.countDocuments().then(count => {
+                const totalPages = Math.ceil(count / limit); 
+                res.render(createPath('events'), { events, title, page, totalPages });
+            });
+        })
+        .catch((error) => {
+            console.log(error);
+            res.render(createPath('error'), { title: 'Error' });
+        });
 });
 
 app.get('/register/:id', (req, res) => {
     const title = 'Add Registration';
     const eventId = req.params.id;
-    /*Event
-    .findById(req.params.id)
-    .then(post => res.render(createPath('register'), { post, title }))
-    .catch((error) => handleError(res, error));*/
     res.render(createPath('registration'), { eventId,title });
 });
 
