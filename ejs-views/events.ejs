@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs') %>
+<body>
+  <h1>Events</h1>
+  <div class="container">
+    <% if (events.length) { %>
+      <% events.forEach(({ id, title, description}) => { %>
+        <div class="event">
+          <div><%= title %></div>
+          <div><%= description %></div>
+          <div class="register"> 
+            <a href="/register/<%= id %>">Register</a> 
+            <a href="/event/<%= id %>/participants">View</a> 
+          </div>
+        </div>
+
+      <% }); %>
+    <% } %>
+    
+  </div>
+</body>
+</html>

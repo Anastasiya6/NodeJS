@@ -1,0 +1,81 @@
+body {
+    display: flex;
+    min-height: 100vh;
+
+    flex-direction: column;
+    font-family: 'Roboto', sans-serif;
+    font-size: 10px;
+  }
+  h1 {
+    text-transform: uppercase;
+  }
+  .container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* Теперь 2 колонки вместо 4 */
+    gap: 20px; /* Расстояние между блоками */
+  }
+  
+  .event {
+    padding: 10px; /* Увеличение внутреннего отступа */
+    border: 1px solid #ccc;
+    font-size: 1rem; /* Увеличение текста */
+  }
+
+  .participant {
+    padding: 10px; /* Увеличение внутреннего отступа */
+    border: 1px solid #ccc;
+    font-size: 1rem; /* Увеличение текста */
+  }
+
+  .register {
+    padding:20px; /* Увеличение внутреннего отступа */
+  }
+
+  .form-info {
+    padding: 10px; 
+    font-size: 1.5rem;
+    margin-bottom: 15px; /* Відступ між блоками */
+  }
+
+  .form-info.input input {
+    width: 300px;  /* Однакова ширина для всіх інпутів */
+    height: 50px;  /* Однакова висота */
+    box-sizing: border-box;  /* Враховує padding у розміри інпуту */
+  }
+
+
+  .form-info label {
+    display: block; /* Встановлюємо label як блочний елемент */
+    margin-bottom: 5px; /* Додаємо відступ знизу */
+  }
+
+  .radio-group {
+    display: flex;
+    gap: 10px; /* Проміжок між елементами */
+    align-items: center;
+}
+
+.radio-group input{
+  box-sizing: border-box; 
+}
+
+.radio-group label {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.form-button {
+  display: flex;
+
+}
+
+.form-button input {
+  text-transform: uppercase;
+  padding: 10px 15px;
+  cursor: pointer;
+}
+
+.form-button input:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+}

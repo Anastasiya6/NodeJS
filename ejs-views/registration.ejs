@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+    <%- include('./partials/head.ejs') %>
+    <body>
+    <h1>Event registration</h1>
+        <form action="/add-participant" method="POST">
+            <div class="form-info input">
+                <label for="fullName">Full Name:</label>
+                <input type="text" name="fullName" required>
+            </div>
+            <div class="form-info input">
+                <label for="email">Email:</label>
+                <input type="email" name="email" required>
+            </div>
+            <div class="form-info input">
+                <label for="dateOfBirth">Date of Birth:</label>
+                <input type="date" name="dateOfBirth" required>
+            </div>
+
+            <div class="form-info">
+                <label for="source">Where did you hear about this event?</label>
+    
+                <div class="radio-group">
+                    <input type="radio" id="socialMedia" name="source" value="Social Media" required>
+                    <label for="socialMedia">Social Media</label>
+            
+                    <input type="radio" id="friend" name="source" value="Friend" required>
+                    <label for="friend">Friend</label>
+            
+                    <input type="radio" id="advertisement" name="source" value="Advertisement" required>
+                    <label for="advertisement">Advertisement</label>
+                </div>  
+            </div>
+            
+            <input type="hidden" name="eventId" value="<%= eventId %>">
+
+            <div class="form-button">
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </body>
+</html>
